@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Contacto</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <style>
+        /* Estilos de la barra de menú */
+        h1 {
+            font-weight: bold;
+            color: black;
+            font-size: 50pt;
+            font-style: italic;
+        }
+
+        .titulo {
+            text-align: center;
+        }
+
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: darkslateblue;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .menu-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .menu-bar li {
+            display: inline;
+            margin-right: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .menu-bar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            background-color: goldenrod;
+            border-radius: 5px;
+            padding: 5px 5px;
+        }
+
+        .menu-bar a:hover {
+            background-color: gold;
+        }
+
+        .menu-bar a.disabled {
+            background-color: darkgoldenrod;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .descripcion {
+            text-align: justify;
+        }
+
+        /* Estilos del formulario */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding-top: 60px; /* Deja espacio para la barra de menú fija */
+        }
+        .container {
+            max-width: 600px;
+            margin: 60px auto 0; /* Ajusta el margen superior para que el contenido no quede debajo del menú */
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        form div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+            border-color: #007BFF;
+        }
+        .error {
+            color: red;
+            font-size: 0.875em;
+        }
+        .char-count {
+            font-size: 0.875em;
+            color: #666;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function validateEmail(email) {
+            const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+            return pattern.test(email);
+        }
+        function updateCharacterCount(id, maxLength) {
+  const input = document.getElementById(id);
+  const countDisplay = document.getElementById(`${id}-count`);
+
+  // Concatenación de cadenas tradicional
+  countDisplay.textContent = input.value.length + "/" + maxLength;
+
+  if (input.value.length > maxLength) {
+    input.value = input.value.substring(0, maxLength);
+  }
+}
+
+        function validateForm() {
+            let valid = true;
+            const names = document.getElementById("nombres");
+            const lastName = document.getElementById("apellidos");
+            const email = document.getElementById("correo");
+            const semester = document.getElementById("semestre");
+            const description = document.getElementById("descripcion");
+
+            // Clear previous errors
+            document.querySelectorAll('.error').forEach(e => e.textContent = '');
+
+            // Validate names
+            if (!names.value || names.value.length > 100) {
+                names.style.borderColor = "red";
+                document.getElementById("names-error").textContent = "El campo Nombre es obligatorio y debe tener máximo 100 caracteres.";
+                valid = false;
+            } else {
+                names.style.borderColor = "";
+            }
+
+            // Validate last name
+            if (!lastName.value || lastName.value.length > 100) {
+                lastName.style.borderColor = "red";
+                document.getElementById("lastName-error").textContent = "El campo Apellido es obligatorio y debe tener máximo 100 caracteres.";
+                valid = false;
+            } else {
+                lastName.style.borderColor = "";
+            }
+
+            // Validate email
+            if (!email.value || email.value.length > 100 || !validateEmail(email.value)) {
+                email.style.borderColor = "red";
+                document.getElementById("email-error").textContent = "El campo Correo es obligatorio, debe tener máximo 100 caracteres, contener '@' y al menos un punto después de '@'.";
+                valid = false;
+            } else {
+                email.style.borderColor = "";
+            }
+
+            // Validate semester
+            if (semester.value < 0 || semester.value > 16) {
+                semester.style.borderColor = "red";
+                document.getElementById("semester-error").textContent = "El campo Semestre debe ser un número entre 0 y 16.";
+                valid = false;
+            } else {
+                semester.style.borderColor = "";
+            }
+
+            // Validate description
+            if (!description.value) {
+                description.style.borderColor = "red";
+                document.getElementById("description-error").textContent = "El campo Descripción es obligatorio.";
+                valid = false;
+            } else {
+                description.style.borderColor = "";
+            }
+
+            return valid;
+        }
+    </script>
+</head>
+<body>
+    <div class="menu-bar">
+        <ul>
+            <li><a th:href="@{/presentacion/view}">Presentación de integrantes</a></li>
+            <li><a th:href="@{/descripcion/view}">Descripción del proyecto</a></li>
+            <li><a th:href="@{/requerimientos/view}">Requerimientos</a></li>
+            <li><a th:href="@{/arquitectura/view}">Arquitectura del proyecto</a></li>
+            <li><a th:href="@{/desarrollo/view}">Para el desarrollo</a></li>
+            <li><a th:href="@{/pruebas/view}">Pruebas</a></li>
+            <li><a th:href="@{/despliegue/view}">Despliegue</a></li>
+            <li><a th:href="@{/formulario/view}" class="disabled">Formulario</a></li>
+        </ul>
+    </div>
+    <h1 class="titulo">FORMULARIO DE CONTACTO</h1>
+    <div class="container">
+        <form action="/formulario/submit" method="post" onsubmit="return validateForm()">
+            <div>
+                <label for="nombres">Nombre:</label>
+                <input type="text" id="nombres" name="nombres" required maxlength="100" oninput="updateCharacterCount('nombres', 100)" />
+                <div id="nombres-count" class="char-count">0/100</div>
+                <div id="names-error" class="error"></div>
+            </div>
+            <div>
+                <label for="apellidos">Apellido:</label>
+                <input type="text" id="apellidos" name="apellidos" required maxlength="100" oninput="updateCharacterCount('apellidos', 100)" />
+                <div id="apellidos-count" class="char-count">0/100</div>
+                <div id="lastName-error" class="error"></div>
+            </div>
+            <div>
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required maxlength="100" />
+                <div id="email-error" class="error"></div>
+            </div>
+            <div>
+                <label for="semestre">Semestre:</label>
+                <input type="number" id="semestre" name="semestre" min="0" max="16" />
+                <div id="semester-error" class="error"></div>
+            </div>
+            <div>
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" required maxlength="500" oninput="updateCharacterCount('descripcion', 500)"></textarea>
+                <div id="descripcion-count" class="char-count">0/500</div>
+                <div id="description-error" class="error"></div>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

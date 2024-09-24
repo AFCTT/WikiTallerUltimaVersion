@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pruebas</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: darkslateblue;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .menu-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .menu-bar li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu-bar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background-color: goldenrod;
+            border-radius: 5px;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-bar a:hover {
+            background-color: gold;
+        }
+
+        .menu-bar a.disabled {
+            background-color: darkgoldenrod;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .titulo {
+            text-align: center;
+            margin: 100px 0 20px; /* Ajusta el margen para que el título no quede debajo del menú fijo */
+            font-weight: bold;
+            color: darkslateblue;
+        }
+
+        h1 {
+            font-size: 50pt;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 36pt;
+            color: darkslateblue;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column; /* Cambia la dirección a columna para que las imágenes estén una debajo de la otra */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor img {
+            max-width: 50%; /* Asegura que todas las imágenes tengan el mismo ancho */
+            height: auto;
+            margin-bottom: 20px; /* Añade espacio entre las imágenes */
+        }
+
+        .contenedor a {
+            display: block; /* Asegura que los enlaces ocupen todo el ancho disponible */
+        }
+
+        .contenedor a img {
+            width: 50%; /* Ajusta las imágenes enlazadas al mismo tamaño */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <ul>
+            <li><a th:href="@{/presentacion/view}">Presentación de integrantes</a></li>
+            <li><a th:href="@{/descripcion/view}">Descripción del proyecto</a></li>
+            <li><a th:href="@{/requerimientos/view}">Requerimientos</a></li>
+            <li><a th:href="@{/arquitectura/view}">Arquitectura del proyecto</a></li>
+            <li><a th:href="@{/desarrollo/view}">Para el desarrollo</a></li>
+            <li><a th:href="@{/pruebas/view}" class="disabled">Pruebas</a></li>
+            <li><a th:href="@{/despliegue/view}">Despliegue</a></li>
+            <li><a th:href="@{/formulario/view}">Formulario</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1 class="titulo">PRUEBAS</h1>
+
+        <div class="section">
+            <h2>CASOS DE FRONTEND</h2>
+            <div class="contenedor">
+                <img src="https://i.ibb.co/QPPjKV8/Captura-de-pantalla-2024-08-07-223449.png" alt="HANDAN" style="width: 50%; height: auto;">
+            </div>
+            <div style="text-align: center;">
+                <p>Se hace uso de los criterios como el @ y el punto al ingresar el correo.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>CASOS DE BACKEND</h2>
+            <div class="contenedor">
+                <img src="https://i.ibb.co/7rJhsVx/sassa.png" alt="HANDAN" style="width: 50%; height: auto;">
+                <a href="https://ibb.co/zb1H0mW"><img src="https://i.ibb.co/5vdxf1X/M-E-R-1.jpg" alt="M-E-R-1"></a>
+                <a href="https://ibb.co/Jp8L0DD"><img src="https://i.ibb.co/M1KTWFF/MER-2-1.jpg" alt="MER-2-1"></a>
+            </div>
+            <div style="text-align: center;">
+                <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto...</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

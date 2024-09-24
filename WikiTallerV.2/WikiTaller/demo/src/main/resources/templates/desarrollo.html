@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Despliegue</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <style>
+        /* Estilo general para el fondo de la página */
+        body {
+            background-color: #f0f0f0; /* Fondo gris claro */
+            margin: 0;
+            font-family: Arial, sans-serif; /* Fuente para mejor legibilidad */
+        }
+
+        /* Estilo para el contenedor del contenido */
+        .content-container {
+            background-color: #ffffff; /* Fondo blanco para el contenido */
+            max-width: 800px; /* Ancho máximo del contenedor */
+            margin: 20px auto; /* Centra el contenedor horizontalmente y agrega un margen superior e inferior */
+            padding: 20px; /* Espaciado interno del contenedor */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <ul>
+            <li><a th:href="@{/presentacion/view}">Presentación de integrantes</a></li>
+            <li><a th:href="@{/descripcion/view}">Descripción del proyecto</a></li>
+            <li><a th:href="@{/requerimientos/view}">Requerimientos</a></li>
+            <li><a th:href="@{/arquitectura/view}">Arquitectura del proyecto</a></li>
+            <li><a th:href="@{/desarrollo/view}">Para el desarrollo</a></li>
+            <li><a th:href="@{/pruebas/view}">Pruebas</a></li>
+            <li><a th:href="@{/despliegue/view}" class="disabled">Despliegue</a></li>
+            <li><a th:href="@{/formulario/view}">Formulario</a></li>
+        </ul>
+    </div>
+    <br>
+    <div class="content-container">
+        <h1 class="titulo">Desarrollo</h1>
+        <h2>VERSIONES</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae turpis ullamcorper, nec luctus ipsum dignissim. Curabitur consequat, purus vel convallis elementum, magna felis varius sem, at cursus urna metus vel orci. Fusce id venenatis libero. Nullam fermentum turpis ut malesuada iaculis. Aliquam erat volutpat. Nunc id facilisis mi. Maecenas tristique purus a arcu congue tincidunt.</p>
+
+        <p>Phasellus tristique tortor a nisl convallis, sit amet ullamcorper ligula bibendum. Integer euismod, nisi a volutpat posuere, elit justo fermentum libero, sed efficitur nunc risus ut risus. Sed non sollicitudin odio. Proin vulputate, mi nec ultricies cursus, lorem urna vestibulum purus, et fermentum justo odio vel nulla. Pellentesque vitae eros ac erat pharetra tempus. Nulla facilisi. Suspendisse potenti.</p>
+
+        <p>Donec consectetur erat ut malesuada aliquet. Nullam sit amet semper erat. Aliquam erat volutpat. Praesent vel augue ut ipsum posuere tempor. Duis non mi sapien. Cras vitae ex ligula. Mauris euismod arcu ac dui posuere, eget dapibus libero vulputate. Suspendisse accumsan ligula at neque laoreet, et pretium libero dictum. In sed orci nec mi tristique sodales at vel lectus.</p>
+
+        <p>Vestibulum nec nibh eu nulla commodo elementum. Sed dignissim risus vitae dolor lacinia, ut interdum nisi consequat. Sed ut purus in eros facilisis congue. Ut in fermentum sem. Curabitur nec sollicitudin lectus. Fusce lacinia turpis sed mi fermentum, at condimentum ante elementum. Aliquam id velit et odio feugiat interdum.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+</head>
+<body>
+    <h1>Formulario Enviado</h1>
+    <p>Nombre: <span th:text="${formulario.nombres}"></span></p>
+    <p>Apellido: <span th:text="${formulario.apellidos}"></span></p>
+    <p>Correo: <span th:text="${formulario.correo}"></span></p>
+    <p>Semestre: <span th:text="${formulario.semestre}"></span></p>
+    <p>Descripción: <span th:text="${formulario.descripcion}"></span></p>
+</body>
+</html>

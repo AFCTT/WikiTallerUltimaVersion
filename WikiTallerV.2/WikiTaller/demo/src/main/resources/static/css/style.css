@@ -1,0 +1,58 @@
+h1{
+  font-weight: bold;
+  color: black;
+	font-size: 50pt;
+  font-style: italic;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color:darkslateblue;
+  padding: 10px;
+  text-align: center;
+}
+  
+.menu-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+  
+.menu-bar li {
+  display: inline;
+  margin-right: 20px;
+  font-weight:bold;
+  color:black;
+}
+  
+.menu-bar a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color:goldenrod;
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+  
+.menu-bar a:hover{
+  background-color:gold;
+}
+
+.menu-bar a.disabled {
+  background-color:darkgoldenrod;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.descripcion{
+  text-align: justify;
+  
+}

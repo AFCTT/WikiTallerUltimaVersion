@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentación</title>
+    <link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="menu-bar">
+        <ul>
+            <li><a th:href="@{/presentacion/view}"  class="disabled">Presentación de integrantes</a></li>
+            <li><a th:href="@{/descripcion/view}">Descripción del proyecto</a></li>
+            <li><a th:href="@{/requerimientos/view}">Requerimientos</a></li>
+            <li><a th:href="@{/arquitectura/view}">Arquitectura del proyecto</a></li>
+            <li><a th:href="@{/desarrollo/view}">Para el desarrollo</a></li>
+            <li><a th:href="@{/pruebas/view}">Pruebas</a></li>
+            <li><a th:href="@{/despliegue/view}">Despliegue</a></li>
+            <li><a th:href="@{/formulario/view}">Formulario</a></li>
+        </ul>
+    </div>
+    <br>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .team-member .info {
+            flex: 1;
+        }
+        .team-member .info h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .team-member .info p {
+            margin: 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Equipo Dinamita</h1>
+        <div class="team-member">
+            <img src="https://i.pinimg.com/736x/67/ac/a7/67aca77d7ab064f2ce81d3c4c385c0e4.jpg" alt="Nombre Miembro 1">
+            <div class="info">
+                <h2>Juan Daniel Vargas</h2>
+                <p>Desarrollador Back-End</p>
+                <p>Se ocupa del servidor, la base de datos y las aplicaciones que gestionan el funcionamiento del sitio web. Es responsable de la lógica del lado del servidor, la integración de la base de datos y la implementación de APIs. Su trabajo asegura que el sitio web sea eficiente, seguro y escalable</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://i.pinimg.com/736x/93/54/f9/9354f948ab2a9e1b1b91c4656216878a.jpg" alt="Nombre Miembro 2">
+            <div class="info">
+                <h2> Andrés Centanaro</h2>
+                <p>Desarrollador Full-Stack</p>
+                <p>Tiene conocimientos tanto de front-end como de back-end. Puede trabajar en todas las capas de la aplicación web, desde la interfaz de usuario hasta la lógica del servidor y la gestión de la base de datos.</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://i.pinimg.com/736x/a0/d1/e6/a0d1e63ea6d2e587271416a4afff59d4.jpg" alt="Nombre Miembro 2">
+            <div class="info">
+                <h2>Jaime Arturo Lepeley</h2>
+                <p>Desarrollador Front-End</p>
+                <p>Se encarga de la parte visual y de la interacción del sitio web. Utiliza tecnologías como HTML, CSS y JavaScript para crear y mantener la interfaz de usuario. </p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://i.pinimg.com/236x/fd/04/94/fd049484a051fa4521be45e9f1603f50.jpg" alt="Nombre Miembro 2">
+            <div class="info">
+                <h2>Juan Cambiado</h2>
+                <p>Diseñador de UX/UI</p>
+                <p>e enfoca en la experiencia del usuario (UX) y la interfaz de usuario (UI). Trabaja para hacer que el sitio web sea intuitivo y fácil de usar, creando diseños atractivos y funcionales.</p>
+            </div>
+        </div>
+        <!-- Agrega más miembros del equipo según sea necesario -->
+    </div>
+</body>
+</html>
